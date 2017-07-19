@@ -348,7 +348,7 @@ QUnit.test('multiple', function() {
 QUnit.test('inside a loop', function() {
   class FooBar extends BasicComponent { }
 
-  env.registerBasicComponent('foo-bar', FooBar, `<p>{{@value}}</p>`);
+  env.registerBasicComponent('FooBar', FooBar, `<p>{{@value}}</p>`);
 
   let roots = [
     { id: 0, element: document.createElement('div'), value: 'foo' },
@@ -360,7 +360,7 @@ QUnit.test('inside a loop', function() {
     stripTight`
       {{~#each roots key="id" as |root|~}}
         {{~#-in-element root.element ~}}
-          {{component 'foo-bar' value=root.value}}
+          {{component 'FooBar' value=root.value}}
         {{~/-in-element~}}
       {{~/each}}
       `,
